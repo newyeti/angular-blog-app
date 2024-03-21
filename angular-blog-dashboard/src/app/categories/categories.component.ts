@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit, inject } from '@angular/core';
-import { Firestore, collection, addDoc } from '@angular/fire/firestore';
+import { Firestore } from '@angular/fire/firestore';
 import { FormsModule, NgForm } from '@angular/forms';
 import { CategoriesService } from '../services/categories.service';
 import { Category } from '../models/category';
@@ -23,7 +23,6 @@ export class CategoriesComponent implements OnInit {
 
   ngOnInit(): void {
     this.categoriesService.loadData().subscribe((values) => {
-      console.log(values);
       this.categories = values;
     });
   }
