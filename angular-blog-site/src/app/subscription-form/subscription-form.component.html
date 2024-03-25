@@ -5,17 +5,35 @@
             <p class="m-auto sub-text">
                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the indus
             </p>
-            <form class="row g-3 mt-1 justify-content-center">
+
+            <div class="alert alert-danger mt-3" *ngIf="isEmailExists">Email already exists.</div>
+            <div class="alert alert-info mt-3" *ngIf="isSubscribed">Thank you for subsribing to our newsletter.</div>
+
+            <form class="row g-3 mt-1 justify-content-center" 
+                #subForm = ngForm 
+                (ngSubmit)="onSubmit(subForm.value)"
+                *ngIf="!isSubscribed">
                 <div class="col-5">
                     <label for="staticEmail2" class="visually-hidden">Email</label>
-                    <input type="text" class="form-control shadow-effect" id="name" placeholder="Your Name">
+                    <input type="text" class="form-control" name="name" placeholder="Your Name"
+                     #Name="ngModel" ngModel required
+                     [ngClass]="{'is-invalid': Name.touched && Name.invalid}">
+                    <div class="text-danger" *ngIf="Name.touched && Name.invalid">
+                        <div *ngIf="Name.errors?.['required']">Name is required</div>
+                    </div>
                 </div>
                 <div class="col-5">
                     <label for="inputPassword2" class="visually-hidden">Password</label>
-                    <input type="email" class="form-control shadow-effect" id="email" placeholder="Email Address">
+                    <input type="email" class="form-control" name="email" placeholder="Email Address"
+                     #Email="ngModel" ngModel required email 
+                     [ngClass]="{'is-invalid': Email.touched && Email.invalid}">
+                    <div class="text-danger" *ngIf="Email.touched && Email.invalid">
+                        <div *ngIf="Email.errors?.['required']">Email is required</div>
+                        <div *ngIf="Email.errors?.['email']">Please enter the valid email address</div>
+                    </div>
                 </div>
                 <div class="d-grid col-2">
-                    <button type="submit" class="btn btn-primary btn-theme">SUBSCRIBE</button>
+                    <button type="submit" class="btn btn-primary btn-theme" [disabled]="subForm.invalid">SUBSCRIBE</button>
                 </div>
             </form>
         </div>
