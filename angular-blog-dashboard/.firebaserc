@@ -1,0 +1,15 @@
+{
+  "projects": {
+    "default": "angular-blog-3d809"
+  },
+  "targets": {
+    "angular-blog-3d809": {
+      "hosting": {
+        "angularBlogDashboard": [
+          "angular-blog-dashboard-0"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}

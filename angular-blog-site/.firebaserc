@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "angular-blog-3d809": {
+      "hosting": {
+        "angular-blogsite": [
+          "angular-blog-3d809"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "angular-blog-3d809"
+  }
+}

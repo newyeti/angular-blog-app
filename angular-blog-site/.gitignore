@@ -42,3 +42,9 @@ testem.log
 Thumbs.db
 
 environments
+# Firebase
+.firebase
+*-debug.log
+.runtimeconfig.json
+
+/angular-blogsite/*

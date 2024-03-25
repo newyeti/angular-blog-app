@@ -1,1 +1,7 @@
-{}
+{
+  "hosting": {
+    "target": "angularBlogDashboard",
+    "public": "dist/angular-blog-dashboard/browser",
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"]
+  }
+}
