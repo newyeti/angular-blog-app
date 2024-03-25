@@ -1,0 +1,9 @@
+.card {
+    background-color: var(--secondary-color);
+    /* width: 1200px; */
+}
+
+.sub-text {
+    width: 500px;
+}
+
