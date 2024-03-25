@@ -3,10 +3,23 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { AllPostComponent } from './posts/all-post/all-post.component';
 import { NewPostComponent } from './posts/new-post/new-post.component';
+import { LoginComponent } from './auth/login/login.component';
+import { authGuard } from './services/auth.guard';
+import { SubscribersComponent } from './subscribers/subscribers.component';
 
 export const routes: Routes = [
-  { path: '', component: DashboardComponent },
-  { path: 'categories', component: CategoriesComponent },
-  { path: 'posts', component: AllPostComponent },
-  { path: 'posts/new', component: NewPostComponent },
+  { path: '', component: DashboardComponent, canActivate: [authGuard] },
+  { path: 'login', component: LoginComponent },
+  {
+    path: 'categories',
+    component: CategoriesComponent,
+    canActivate: [authGuard],
+  },
+  { path: 'posts', component: AllPostComponent, canActivate: [authGuard] },
+  { path: 'posts/new', component: NewPostComponent, canActivate: [authGuard] },
+  {
+    path: 'subscribers',
+    component: SubscribersComponent,
+    canActivate: [authGuard],
+  },
 ];

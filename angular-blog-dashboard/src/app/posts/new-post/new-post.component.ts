@@ -8,7 +8,6 @@ import {
   Validators,
 } from '@angular/forms';
 import { ActivatedRoute, RouterLink } from '@angular/router';
-import { every } from 'rxjs';
 import { CategoriesService } from '../../services/categories.service';
 import { Category } from '../../models/category';
 import { AngularEditorModule } from '@kolkov/angular-editor';
